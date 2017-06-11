@@ -2,7 +2,7 @@
 
 Easily create one amalgamated source file by adding hotwords into comments where you want the other files pasted.
 
-Primarily used when you want to work in multiple files, but a single source file is required, (typically for online editors or single file submittal).
+Useful for when you want to work in multiple files, but a single source file is required, (typically for online editors or single file submittal).
 
 ---
 
@@ -18,17 +18,22 @@ The first step to using Amalgamacate is to add comments with a "hotword:FILE" fo
 The default hotword is AMALGAMACATE, but the script accepts any string via the `-hw` or `--hotword` option argument.
 
 I find the easiest way to use it is to add a comment on the same line as your include (or import, or whatever it is in your language choice), so that it looks like this:
+
 `#include "utilities.hpp" // -> AMALGAMACATE:utilities.hpp`
-(this will take care of removing the `#include` statement for you, as when the hotword is found it replaces the entire line the hotword is on)
+
+*(this will take care of removing the `#include` statement for you, as when the hotword is found it replaces the entire line the hotword is on)*
 
 Once your main source file has the **hotword:file** stuff in place, simply run from the command line:
+
 `python amalgamacate.py main.cpp amalgamated.cpp`
+
 and the script will find the hotwords in main.cpp, replace them with the full contents of their files, and then be copied into a new file **amalgamated.cpp**.
 
 ### Custom Hotword
 
 If you decide you don't want to use AMALGAMACATE for your hotword, you can simply append `-hw` or `--hotword` followed by your preferred hotword.
 Given the same situation above, you can have the script look for the hotword **MoNkEyBuTt** by running it like this:
+
 `python amalgamacate.py main.cpp amalgamacate.cpp -hw MoNkEyBuTt`
 
 ---
@@ -62,6 +67,7 @@ std::string WhatDoISay() {
 ```
 
 and running:
+
 `python amalgamacate.py main.cpp amalgamated.cpp`
 
 will create:
