@@ -12,6 +12,25 @@ Useful for when you want to work in multiple files, but a single source file is 
 
 ---
 
+## Command Line Interface Help
+
+Running `python amalgamacate.py -h` will pull up a brief description of the command line inputs, like so:
+
+```
+usage: amalgamacate.py [-h] [-hw HOTWORD] main output
+
+Amalgamate source files into one large file
+
+positional arguments:  
+	main                 			the file that contains the main process  
+	output            			the destination file
+optional arguments:  
+	-h, --help            			show this help message and exit  
+	-hw HOTWORD, --hotword HOTWORD          the hot word to look for, default="AMALGAMACATE:"
+```
+
+---
+
 ## How to use it:
 
 The first step to using Amalgamacate is to add comments with a "hotword:FILE" format to your main file (i.e. **main.cpp**).
